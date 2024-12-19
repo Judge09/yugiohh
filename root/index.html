@@ -66,11 +66,23 @@
         .card:hover {
             transform: rotateY(180deg);
         }
-        .card img {
+
+        .card .front, .card .back {
+            position: absolute;
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
-            object-fit: cover;
+        }
+
+        .card .front img, .card .back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures full image coverage */
+        }
+
+        .card .back {
+            transform: rotateY(180deg);
+            background: rgba(0, 0, 0, 0.7); /* Optional background for back side */
         }
 
         /* Scrolling Effect */
@@ -149,12 +161,22 @@
         <div class="scrolling-gallery">
             <div class="card-container">
                 <div class="card">
-                    <img src="Image (4).png" alt="Duel Memory 1">
+                    <div class="front">
+                        <img src="images/html1.jpg" alt="Duel Memory 1">
+                    </div>
+                    <div class="back">
+                        <img src="images/html1.jpg" alt="Back Image 1">
+                    </div>
                 </div>
             </div>
             <div class="card-container">
                 <div class="card">
-                    <img src="Image (5).png" alt="Duel Memory 2">
+                    <div class="front">
+                        <img src="images/html2.png" alt="Duel Memory 2">
+                    </div>
+                    <div class="back">
+                        <img src="images/html2.png" alt="Back Image 2">
+                    </div>
                 </div>
             </div>
         </div>
