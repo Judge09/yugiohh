@@ -45,64 +45,51 @@
             margin-right: 5px;
             color: #ffd700;
         }
-        /* Gallery and flip animation */
-        .gallery-container {
-            display: flex;
-            overflow-x: auto;
-            padding: 20px;
-            gap: 20px;
-        }
-        .gallery-card {
-            width: 200px;
-            height: 300px;
+
+        /* Card Flip Styles */
+        .card-container {
             perspective: 1000px;
-            cursor: pointer;
-            transition: transform 0.5s;
-        }
-        .gallery-card img {
-            width: 100%;
-            height: 100%;
-            border-radius: 10px;
-            transition: transform 0.5s;
-        }
-        .gallery-card:hover img {
-            transform: rotateY(180deg);
-        }
-        .gallery-card img {
-            backface-visibility: hidden;
-        }
-        /* Card flip effect */
-        .gallery-card .front {
-            display: block;
-        }
-        .gallery-card .back {
-            display: none;
-        }
-        .gallery-card:hover .front {
-            display: none;
-        }
-        .gallery-card:hover .back {
-            display: block;
-        }
-        .back {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
+            margin: 0 auto;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #ffd700;
-            font-size: 16px;
-            opacity: 0;
-            transition: opacity 0.5s;
+            height: 300px;
+            margin-top: 50px;
         }
-        .gallery-card:hover .back {
-            opacity: 1;
+        .card {
+            width: 200px;
+            height: 300px;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: transform 1s;
         }
+        .card:hover {
+            transform: rotateY(180deg);
+        }
+        .card img {
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            object-fit: cover;
+        }
+
+        /* Scrolling Effect */
+        .scrolling-gallery {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 20px 0;
+        }
+        .scrolling-gallery img {
+            margin-right: 15px;
+            flex-shrink: 0;
+            height: 200px;
+            transition: transform 0.5s;
+        }
+        .scrolling-gallery img:hover {
+            transform: scale(1.1);
+        }
+
     </style>
 </head>
 <body>
@@ -159,47 +146,16 @@
 
     <section id="gallery" class="container mt-5">
         <h2 class="text-center"><i class="fas fa-image icon"></i>Gallery (Memories)</h2>
-        <div class="gallery-container">
-            <div class="gallery-card">
-                <img src="html1.jpg" alt="Duel Memory 1" class="front">
-                <div class="back">Duel Memory 1</div>
+        <div class="scrolling-gallery">
+            <div class="card-container">
+                <div class="card">
+                    <img src="images/html1.jpg" alt="Duel Memory 1">
+                </div>
             </div>
-            <div class="gallery-card">
-                <img src="html2.png" alt="Duel Memory 2" class="front">
-                <div class="back">Duel Memory 2</div>
-            </div>
-            <div class="gallery-card">
-                <img src="html2.png" alt="Duel Memory 2" class="front">
-                <div class="back">Duel Memory 2</div>
-            </div>
-            <div class="gallery-card">
-                <img src="html2.png" alt="Duel Memory 2" class="front">
-                <div class="back">Duel Memory 2</div>
-            </div>
-            <div class="gallery-card">
-                <img src="html2.png" alt="Duel Memory 2" class="front">
-                <div class="back">Duel Memory 2</div>
-            </div>
-            <div class="gallery-card">
-                <img src="html2.png" alt="Duel Memory 2" class="front">
-                <div class="back">Duel Memory 2</div>
-            </div>
-            <div class="gallery-card">
-                <img src="html2.png" alt="Duel Memory 2" class="front">
-                <div class="back">Duel Memory 2</div>
-            </div>
-            <div class="gallery-card">
-                <img src="html2.png" alt="Duel Memory 2" class="front">
-                <div class="back">Duel Memory 2</div>
-            </div>
-            <div class="gallery-card">
-                <img src="html2.png" alt="Duel Memory 2" class="front">
-                <div class="back">Duel Memory 2</div>
-            </div>
-
-            <div class="gallery-card">
-                <img src="html2.png" alt="Duel Memory 2" class="front">
-                <div class="back">Duel Memory 2</div>
+            <div class="card-container">
+                <div class="card">
+                    <img src="images/html2.png" alt="Duel Memory 2">
+                </div>
             </div>
         </div>
     </section>
