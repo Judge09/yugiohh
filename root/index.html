@@ -160,4 +160,32 @@
     <section id="gallery" class="container mt-5">
         <h2 class="text-center"><i class="fas fa-image icon"></i>Gallery (Memories)</h2>
         <div class="gallery-container">
- 
+            <div class="gallery-card">
+                <img src="html1.jpg" alt="Duel Memory 1" class="front">
+                <div class="back">Duel Memory 1</div>
+            </div>
+            <div class="gallery-card">
+                <img src="html2.png" alt="Duel Memory 2" class="front">
+                <div class="back">Duel Memory 2</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center mt-5">
+        <p class="life-points"><i class="fas fa-heart icon"></i>Life Points: 8000</p>
+    </footer>
+
+    <script>
+        let lifePoints = 8000;
+        const footer = document.querySelector('.life-points');
+        setInterval(() => {
+            lifePoints -= 50; // Simulate progress or challenge
+            footer.textContent = `Life Points: ${lifePoints}`;
+            if (lifePoints <= 0) {
+                footer.textContent = 'Life Points: 0 (Duel Over)';
+                clearInterval();
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
